@@ -1,9 +1,9 @@
 import ConfirmForm from '@/components/form-auth/confirm-code'
 import { AUTH_ROUTE } from '@/constants/route'
 import { redirect} from 'next/navigation'
-import React from 'react'
 
-function Page({searchParams} : {searchParams?: {email?: string}}) {
+function  Page({searchParams} : {searchParams?: {email?: string}}) {
+    console.log(searchParams)
     if (!searchParams) {
         redirect(AUTH_ROUTE.LOGIN)
     }

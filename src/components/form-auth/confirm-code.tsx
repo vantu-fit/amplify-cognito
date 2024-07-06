@@ -26,8 +26,9 @@ import { PROTECTED_ROUTE } from '@/constants/route'
 
 function ConfirmForm({email} : {email: string}) {
     const router = useRouter() 
-    const {error : errorCurrent} = useCurrentUser()
-    if (!errorCurrent) {
+
+    const {user} = useCurrentUser()
+    if (!user) {
         router.push(PROTECTED_ROUTE.DASHBOARD)
     }
      
@@ -63,10 +64,15 @@ function ConfirmForm({email} : {email: string}) {
                 .catch((error) => {
                     console.log('error', error)
                     setError(error.message)
+                    setIsLoading(false)
                 })
             } else {
                 setIsLoading(false)
             }
+        }).catch((error) => {
+            console.log('error', error)
+            setError(error.message)
+            setIsLoading(false)
         })
     }
 

@@ -3,15 +3,15 @@ import { Amplify, ResourcesConfig } from 'aws-amplify';
 
 const authConfig: ResourcesConfig["Auth"] = {
     Cognito: {
-        userPoolId: 'ap-southeast-1_3UcFb8IAS',
-        userPoolClientId: '7d945a5dsb3lm65an80ck7tmim',
+        userPoolId: process.env.NEXT_PUBLIC_USER_POOL_ID || '',
+        userPoolClientId: process.env.NEXT_PUBLIC_USER_POOL_CLIENT_ID || '',
         loginWith : {
             oauth : {
                 // login with google
                 domain : 'https://auth.google.com',
                 scopes : ['email', 'openid', 'profile'],
-                redirectSignIn : ['http://localhost:3000'],
-                redirectSignOut : ['http://localhost:3000'],
+                redirectSignIn : [process.env.NEXT_PUBLIC_REDIRECT_SIGN_IN || 'http://localhost:3000'],
+                redirectSignOut : [process.env.NEXT_PUBLIC_REDIRECT_SIGN_OUT || 'http://localhost:3000'],
                 responseType: 'code',
             }
         }

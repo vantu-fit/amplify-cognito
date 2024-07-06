@@ -1,37 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- Description -->
+# Next.js with AWS Cognito + Amplify
+
+This project demonstrates how to integrate AWS Cognito with a Next.js application. It uses the AWS Amplify library to interact with the Cognito user pool and authenticate users.
+
+## Features
+- User registration and login using AWS Cognito.
+- Customized login and registration pages.
+- User authentication and session management.
+- Protected routes and access control.
+- User profile management and settings.
+
 
 ## Getting Started
+### Creating a User Pool and App Client in AWS Cognito
 
-First, run the development server:
+#### 1. Create a User Pool
 
+- Log in to the AWS Management Console and navigate to Cognito.
+- Create a new User Pool.
+- Configure settings such as password policies and multi-factor authentication.
+- Proceed to create the User Pool.
+
+#### 2. Create an App Client
+
+- Inside the User Pool settings, navigate to "App clients".
+- Add a new app client.
+- Specify options like client secret and authentication methods.
+- Create the app client.
+
+#### 3. Configure and Use
+
+- Use the App Client ID and User Pool ID in your application integration.
+- Customize login and registration pages as required.
+- Test and deploy your application.
+
+These steps will help you set up user authentication and management using AWS Cognito for your applications.
+
+### Setting Up the Project
+<!-- modify file .env.example -->
+- Modify the `.env.example` file to include your AWS Cognito User Pool ID and App Client ID.
+- Rename the file to `.env`.
+
+### Running the Project
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+
+### Custome UI
+<!-- import images from ./public/docs -->
+- Register Page
+![Login Page](./public/docs/register-login-ui.png)
+
+- Confirm Page
+![Register Page](./public/docs/error-confirm.png)
+
+
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # amplify-cognito
